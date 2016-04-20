@@ -11,7 +11,7 @@ for component in sys.argv[1:]:
 dep_list = "".join((c + " ") for c in boost_components)
 
 print "installing the following boost components:"
-print "".join(("-- %s\n" % s) for s in dep_list.split(' '))
+print "".join(("-- %s\n" % s) for s in dep_list.rstrip().split(' '))
 
 cmd = "sudo apt-get install -qq %s" % (dep_list)
 
