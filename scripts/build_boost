@@ -11,7 +11,7 @@ cd $BOOST_ROOT
 ./bootstrap.sh
 
 # setup b2 user config base on target os argument
-if [[ "$TARGET_OS" -eq "windows" ]]; then
+if [[ "$TARGET_OS" = "windows" ]]; then
 	# cross compiling windows, setup mingw toolset
 	echo "-- Setting up cross compiler"
 	echo "using gcc : mingw : i686-w64-mingw32-g++;" > user-config.jam
