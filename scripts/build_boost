@@ -8,7 +8,7 @@ export PREV_DIR=$(pwd)
 cd $BOOST_ROOT
 
 # booststrap boost
-./booststrap.sh
+./bootstrap.sh
 
 # setup b2 user config base on target os argument
 if [[ "$TARGET_OS" -eq "windows" ]]; then
