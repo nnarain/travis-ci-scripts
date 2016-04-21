@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# boost variables
+export BOOST_VERSION=$1
+export BOOST_NAME="boost_$(echo "$BOOST_VERSION" | tr . _)"
+export BOOST_TAR_FILE="$BOOST_NAME.tar.gz"
+export DOWNLOAD_URL="http://downloads.sourceforge.net/project/boost/boost/$BOOST_VERSION/$BOOST_TAR_FILE"
+
+# download boost
+echo "-- Downloading Boost $BOOST_VERSION"
+wget $DOWNLOAD_URL -P ~/tmp
+
+# extract to /opt
+tar -xvf ~/tmp/$BOOST_TAR_FILE -C /opt/
+
+# booststrap boost
+build_boost $BOOST_NAME $2
+
+# clean up
+unset BOOST_VERSION
+unset BOOST_NAME
+unset BOOST_TAR_FILE
+unset DOWNLOAD_URL

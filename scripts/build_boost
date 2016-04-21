@@ -1,0 +1,27 @@
+#!/bin/bash
+
+export BOOST_ROOT=/opt/$1
+export TARGET_OS=$2
+
+export PREV_DIR=$(pwd)
+
+cd $BOOST_ROOT
+
+# booststrap boost
+./booststrap.sh
+
+# setup b2 user config base on target os argument
+if [[ "$TARGET_OS" -eq "windows" ]]; then
+	# cross compiling windows, setup mingw toolset
+	echo "using gcc : mingw : i686-w64-mingw32-g++;" > user-config.jam
+	export B2_ARGS="toolset=gcc-mingw target-os=windows"
+else
+	export B2_ARGS="target-os=linux"
+fi
+
+# run boost build
+./b2 $B2_ARGS
+
+# go back
+cd $PREV_DIR
+
