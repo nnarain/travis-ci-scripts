@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# install mingw 64
+
+sudo apt-get install mingw-w64
