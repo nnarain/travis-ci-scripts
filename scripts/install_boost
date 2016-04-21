@@ -12,7 +12,8 @@ wget $DOWNLOAD_URL -P ~/tmp
 
 # extract to /opt
 echo "-- Extracting boost to /opt/$BOOST_NAME"
-sudo tar -xf ~/tmp/$BOOST_TAR_FILE -C /opt/
+tar -xf ~/tmp/$BOOST_TAR_FILE -C ~/tmp/
+sudo mv ~/tmp/$BOOST_NAME /opt
 ls /opt
 
 # booststrap boost
