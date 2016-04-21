@@ -11,7 +11,7 @@ echo "-- Downloading Boost $BOOST_VERSION"
 wget $DOWNLOAD_URL -P ~/tmp
 
 # extract to /opt
-tar -xvf ~/tmp/$BOOST_TAR_FILE -C /opt/
+sudo tar -xf ~/tmp/$BOOST_TAR_FILE -C /opt/
 
 # booststrap boost
 build_boost $BOOST_NAME $2
