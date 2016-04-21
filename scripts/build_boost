@@ -13,6 +13,7 @@ cd $BOOST_ROOT
 # setup b2 user config base on target os argument
 if [[ "$TARGET_OS" -eq "windows" ]]; then
 	# cross compiling windows, setup mingw toolset
+	echo "-- Setting up cross compiler"
 	echo "using gcc : mingw : i686-w64-mingw32-g++;" > user-config.jam
 	export B2_ARGS="toolset=gcc-mingw target-os=windows"
 else
@@ -20,6 +21,7 @@ else
 fi
 
 # run boost build
+echo "-- Running Boost.Build Engine"
 ./b2 $B2_ARGS
 
 # go back
