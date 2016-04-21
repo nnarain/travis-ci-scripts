@@ -2,3 +2,6 @@
 
 # make all script executable
 chmod +x ./scripts/*
+
+# install scripts
+sudo mv ./scripts/* /usr/local/bin/
