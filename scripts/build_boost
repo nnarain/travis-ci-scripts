@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BOOST_ROOT=/opt/$1
+export BOOST_ROOT=$1
 export TARGET_OS=$2
 
 export PREV_DIR=$(pwd)
