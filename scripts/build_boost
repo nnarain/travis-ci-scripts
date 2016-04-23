@@ -7,7 +7,7 @@ export PREV_DIR=$(pwd)
 
 cd $BOOST_ROOT
 
-# booststrap boost
+# bootstrap boost
 ./bootstrap.sh
 
 # setup b2 user config base on target os argument
@@ -22,7 +22,7 @@ fi
 
 # run boost build
 echo "-- Running Boost.Build Engine"
-./b2 $B2_ARGS --with-system --with-thread
+./b2 $B2_ARGS "--with-system --with-thread"
 
 # go back
 cd $PREV_DIR
