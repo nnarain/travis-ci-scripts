@@ -14,10 +14,9 @@ wget $DOWNLOAD_URL -P ~/tmp
 echo "-- Extracting boost to /opt/$BOOST_NAME"
 tar -xf ~/tmp/$BOOST_TAR_FILE -C ~/tmp/
 sudo mv ~/tmp/$BOOST_NAME /opt
-ls /opt
 
 # booststrap boost
-#build_boost /opt/$BOOST_NAME $2
+build_boost /opt/$BOOST_NAME $2
 
 # create a setup shell script that contains the BOOST_ROOT env variable
 echo "-- Creating Boost setup.bash"

@@ -22,7 +22,7 @@ fi
 
 # run boost build
 echo "-- Running Boost.Build Engine"
-./b2 $B2_ARGS
+./b2 $B2_ARGS --with-system --with-thread
 
 # go back
 cd $PREV_DIR
