@@ -2,6 +2,7 @@
 
 export BOOST_ROOT=$1
 export TARGET_OS=$2
+export BOOST_LIBS="${@:3}"
 
 export PREV_DIR=$(pwd)
 
@@ -15,14 +16,14 @@ if [[ "$TARGET_OS" = "windows" ]]; then
 	# cross compiling windows, setup mingw toolset
 	echo "-- Setting up cross compiler"
 	echo "using gcc : mingw : i686-w64-mingw32-g++;" > user-config.jam
-	export B2_ARGS="toolset=gcc-mingw target-os=windows"
+	export TOOLSET_ARGS="toolset=gcc-mingw target-os=windows"
 else
-	export B2_ARGS="target-os=linux"
+	export TOOLSET_ARGS="target-os=linux"
 fi
 
 # run boost build
 echo "-- Running Boost.Build Engine"
-./b2 $B2_ARGS --with-system --with-thread
+./b2 $TOOLSET_ARGS $BOOST_LIBS
 
 # go back
 cd $PREV_DIR
