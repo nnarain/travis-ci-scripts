@@ -20,7 +20,9 @@ ls /opt
 #build_boost /opt/$BOOST_NAME $2
 
 # create a setup shell script that contains the BOOST_ROOT env variable
-sudo echo "export BOOST_ROOT=/opt/$BOOST_NAME" > /opt/BOOST_NAME/setup.bash
+echo "-- Creating Boost setup.bash"
+echo "export BOOST_ROOT=/opt/$BOOST_NAME" > ~/tmp/setup.bash
+sudo mv ~/tmp/setup.bash /opt/$BOOST_NAME
 
 # clean up
 unset BOOST_VERSION
