@@ -20,7 +20,7 @@ git fetch origin gh-pages:gh-pages && git checkout gh-pages
 
 # remove content
 echo "Removing Content"
-git rm -r .
+git rm -rf .
 
 # change to project root
 cd $TRAVIS_BUILD_DIR
