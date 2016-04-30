@@ -27,6 +27,7 @@ cd $TRAVIS_BUILD_DIR
 
 # build docs
 echo "Creating Docs"
+doxygen --version
 doxygen Doxyfile
 
 # change to docs folder
