@@ -33,7 +33,7 @@ doxygen Doxyfile
 # change to docs folder
 cd docs/html
 
-ls
+ls /home/travis/build/nnarain/travis-ci-tests/include
 
 # add and commit changes
 git config user.name "Travis CI"
