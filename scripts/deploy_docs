@@ -31,7 +31,7 @@ doxygen Doxyfile
 cd docs/html
 
 # add and commit changes
-git add .
+git add . --all
 git commit -m "Travis CI Autodocs $TRAVIS_BUILD_NUMBER"
 
 # push to remote
