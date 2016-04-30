@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# only deploy docs for master branch
+if [[ "$TRAVIS_BRANCH" != "master" ]]; then
+	exit 0
+fi
+
+# cd into project root
+cd $TRAVIS_BUILD_DIR
+
+# assume there is a docs folder as there might be documentation assets in docs
+cd docs/
+
+# clone this project as html folder (TRAVIS_REPOS_SLUG=user/repo)
+git clone https://github.com/$TRAVIS_REPO_SLUG.git ./html
+cd html
+
+# fetch github pages branch and checkout
+git fetch origin gh-pages:gh-pages && git checkout gh-pages
+
+# remove content
+rm -rf *
+
+# change to project root
+cd $TRAVIS_BUILD_DIR
+
+# build docs
+doxygen Doxyfile
+
+# change to docs folder
+cd docs/html
+
+# add and commit changes
+git add .
+git commit -m "Travis CI Autodocs $TRAVIS_BUILD_NUMBER"
+
+# push to remote
+git push -f -q https://nnarain:$GITHUB_API_TOKEN@github.com/$TRAVIS_REPO_SLUG.git gh-pages
+
