@@ -2,6 +2,7 @@
 
 if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
 
-sudo add-apt-repository -y ppa:kedazo/doxygen-updates-precise
+echo "\ndeb http://ppa.launchpad.net/kedazo/doxygen-updates-precise/ubuntu precise main" >> /etc/apt/sources.list
+echo "\ndeb-src http://ppa.launchpad.net/kedazo/doxygen-updates-precise/ubuntu precise main" >> /etc/apt/sources.list
 
 sudo apt-get update -qq
