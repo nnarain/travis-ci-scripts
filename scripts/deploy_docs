@@ -19,12 +19,14 @@ cd html
 git fetch origin gh-pages:gh-pages && git checkout gh-pages
 
 # remove content
+echo "Removing Content"
 git rm -r .
 
 # change to project root
 cd $TRAVIS_BUILD_DIR
 
 # build docs
+echo "Creating Docs"
 doxygen Doxyfile
 
 # change to docs folder
@@ -34,8 +36,10 @@ cd docs/html
 git config user.name "Travis CI"
 git config user.email "Travis CI"
 git add . --all
+echo "Commiting Changes"
 git commit -m "Travis CI Autodocs $TRAVIS_BUILD_NUMBER"
 
 # push to remote
+echo "Pushing"
 git push -f -q https://nnarain:$GITHUB_API_TOKEN@github.com/$TRAVIS_REPO_SLUG.git gh-pages
 
