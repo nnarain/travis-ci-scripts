@@ -1,3 +1,5 @@
 #!/bin/bash
 
 if [ "$CXX" == "g++" ]; then sudo apt-get install g++-4.8 -qq; fi
+
+sudo apt-get install cxxtest -qq
