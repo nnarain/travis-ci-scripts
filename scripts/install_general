@@ -17,5 +17,5 @@ cd -
 pushd $(pwd)
 git clone https://github.com/danmar/cppcheck ~/cppcheck
 cd ~/cppcheck
-make CXXFLAGS="-O2 -DNDEBUG" && sudo make install
+make SRCDIR=build CFGDIR=cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG" && sudo make install
 popd
