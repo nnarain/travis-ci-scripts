@@ -12,3 +12,10 @@ mkdir ~/gtest/build && cd ~/gtest/build
 cmake ..
 make && sudo make install
 cd -
+
+# install cppcheck
+pushd
+git clone https://github.com/danmar/cppcheck ~/cppcheck
+cd ~/cppcheck
+make CXXFLAGS="-O2 -DNDEBUG" && sudo make install
+popd
