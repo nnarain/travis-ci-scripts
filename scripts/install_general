@@ -15,6 +15,7 @@ cd -
 
 # install cppcheck
 pushd $(pwd)
+sudo apt install libpcre3-dev
 git clone https://github.com/danmar/cppcheck ~/cppcheck
 cd ~/cppcheck
 make SRCDIR=build CFGDIR=/usr/share/cppcheck HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG"
